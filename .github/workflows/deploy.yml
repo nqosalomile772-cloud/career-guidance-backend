@@ -29,7 +29,9 @@ jobs:
           echo "FIREBASE_MESSAGING_SENDER_ID=${{ secrets.FIREBASE_MESSAGING_SENDER_ID }}" >> .env
           echo "FIREBASE_APP_ID=${{ secrets.FIREBASE_APP_ID }}" >> .env
           
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Deploy to Heroku
+        uses: akhileshns/heroku-deploy@v3.12.14
         with:
-          folder: .
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: "career-guidance-backend"
+          heroku_email: "nqosalomile772@gmail.com"
